@@ -4,7 +4,7 @@
 	"values": [
 		{
 			"key": "base_url_shipping",
-			"value": "http://3.239.247.244/shipping",
+			"value": "http://3.80.241.176/shipping",
 			"type": "default",
 			"enabled": true
 		}
