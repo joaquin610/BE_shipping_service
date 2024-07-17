@@ -14,4 +14,4 @@ CMD ["java", "-jar", "app.jar"]
 # intrucciones para generar una img y el contenedor corectamentes
 # docker build -t be_shipping_service .
 # docker run -d --name be_shipping_service_container -p 80:80 be_shipping_service 
-# docker run -d --name be_shipping_service_container --network my_network -p 8082:8082 be_shipping_service
+# docker run -d --name be_shipping_service_container --network my_network -p 80:80 be_shipping_service
