@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
   sonarCloudReport:
     runs-on: ubuntu-latest
     needs: build
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -45,7 +45,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: sonarCloudReport
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
