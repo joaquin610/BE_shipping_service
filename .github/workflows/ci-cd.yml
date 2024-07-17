@@ -45,7 +45,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: sonarCloudReport
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -55,8 +55,13 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install Newman
-        run: npm install -g newman
+      - name: Install Newman and HTML Reporter
+        run: |
+          npm install -g newman
+          npm install -g newman-reporter-html
+
+      - name: Grant execution permission for run_tests.sh
+        run: chmod +x ./run_tests.sh
 
       - name: Run Postman Tests
         run: ./run_tests.sh
@@ -67,9 +72,10 @@ jobs:
         with:
           name: newman-html-report
           path: newman-report.html
+
   cd:
     runs-on: ubuntu-latest
-    needs: sonarCloudReport
+    needs: test
     if: github.ref == 'refs/heads/main'
       
     steps:
